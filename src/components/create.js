@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 
 const Create = () => {
@@ -5,8 +6,16 @@ const Create = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const header = { "Access-Control-Allow-Origin": "*" };
 
-  
+  const handleSubmit = (e) => {
+    e.prevetDefault();
+    axios.post("https://62fa57663c4f110faa973373.mockapi.io/crud-crash",
+      {
+        name: name, email: email, 
+      },
+    header,);
+  };
 
 
   return (
@@ -31,9 +40,9 @@ const Create = () => {
 
 
         <button type="submit" className="btn btn-primary"
-                onClick={handleSubmit }
+          onClick={handleSubmit}
         >
-        Submit
+          Submit
         </button>
       </form>
 

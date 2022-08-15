@@ -1,13 +1,20 @@
 
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from './components/create';
+import Read from './components/read';
+
 
 function App() {
   return (
-    <div className="container">
-      <h2 className='d-flex p-2 justify-content-center'>Learn CRUD using React JS</h2>
-      <Create />
-    </div>
+    <BrowserRouter>
+      <Routes> 
+          <Route exact path='/' element={<Create />}/>
+          <Route exact path='/read' element={<Read />}/> 
+      </Routes>
+
+
+    </BrowserRouter>
   );
 }
 
