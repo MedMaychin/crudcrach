@@ -7,14 +7,15 @@ import Read from './components/read';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes> 
-          <Route exact path='/' element={<Create />}/>
-          <Route exact path='/read' element={<Read />}/> 
-      </Routes>
 
-
-    </BrowserRouter>
+    <div className="container">
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<Create />} />
+          <Route exact path='/read' element={<Read />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

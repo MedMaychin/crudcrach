@@ -1,20 +1,27 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom"; 
+
 
 const Create = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const history = useNavigate();
 
   const header = { "Access-Control-Allow-Origin": "*" };
 
   const handleSubmit = (e) => {
-    e.prevetDefault();
+    e.preventDefault();
+    console.log("clciekd");
     axios.post("https://62fa57663c4f110faa973373.mockapi.io/crud-crash",
       {
-        name: name, email: email, 
-      },
-    header,);
+        name: name,
+        email: email,
+      })
+      .then(() => {
+        history("/read");
+      });
   };
 
 
@@ -22,6 +29,7 @@ const Create = () => {
     <>
 
       <form>
+        <a href='/read' className='btn btn-info ' >Rad Data</a>
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
