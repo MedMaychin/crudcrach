@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom"; 
-
+import { Link, useNavigate } from "react-router-dom";
 
 const Create = () => {
 
@@ -29,7 +28,11 @@ const Create = () => {
     <>
 
       <form>
-        <a href='/read' className='btn btn-info ' >Rad Data</a>
+        <Link to="/read " >
+          <button type="submit" className="btn btn-info" >
+            Read Data
+          </button>
+        </Link>
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
@@ -50,7 +53,7 @@ const Create = () => {
         <button type="submit" className="btn btn-primary"
           onClick={handleSubmit}
         >
-          Submit
+          Add
         </button>
       </form>
 
